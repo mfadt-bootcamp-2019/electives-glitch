@@ -20,10 +20,12 @@ void draw() {
 void mouseReleased() {
 	float x = constrain(mouseX, 1, width);
     float y = constrain(mouseY, 1, height);
-    int jumpValue = floor(sqrt(y*width + x));
+    int jumpValue = floor(sqrt(y * width + x));
     glitchIt(jumpValue);
 }
 
+// When we press the enter key,
+// take a photo of the screen and save it
 void keyReleased() {
     if (key == ENTER || key == RETURN) {
         String filename = "img/quicksort-" + counter + ".jpg";
@@ -37,8 +39,9 @@ void keyReleased() {
 void glitchIt(int jump) {
     image(img, 0, 0, 1200, 800);
     loadPixels();
-    for (int x = 0; x < ((width*height)-(jump+1)); x+=jump) {
-        quicksort(pixels, x, x+jump);
+    float maxPixels = (width * height) - (jump+  1);
+    for (int x = 0; x < maxPixels; x += jump) {
+        quicksort(pixels, x, x + jump);
     }
     updatePixels();
 }
@@ -48,7 +51,7 @@ void glitchIt(int jump) {
 void quicksort(int x[], int left, int right) {
     int index = partition(x, left, right);
     if (left < index - 1) {
-        quicksort(x, left, index-1);
+        quicksort(x, left, index - 1);
     }
     if (index < right) {
         quicksort(x, index, right);
@@ -60,7 +63,7 @@ int partition(int x[], int left, int right) {
     int i = left;
     int j = right;
     int temp;
-    int pivot = x[(left+right)/2];
+    int pivot = x[(left + right)/2];
     while (i <= j) {
         while (x[i] < pivot) {
             i++;
