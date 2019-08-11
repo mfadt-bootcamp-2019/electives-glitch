@@ -19,7 +19,7 @@ void draw() {
 void mouseReleased() {
 	float x = constrain(mouseX, 1, width);
     float y = constrain(mouseY, 1, height);
-    int jumpValue = floor((sqrt(x*y + x))*10);
+    int jumpValue = floor(sqrt(y*width + x));
     glitchIt(jumpValue);
 }
 
