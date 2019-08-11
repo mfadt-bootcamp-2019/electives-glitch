@@ -1,5 +1,6 @@
 // Declare the image variable
 PImage img;
+int counter = 0;
 
 // Set the canvas size, load the pixels, etc.
 void setup() {
@@ -21,6 +22,14 @@ void mouseReleased() {
     float y = constrain(mouseY, 1, height);
     int jumpValue = floor(sqrt(y*width + x));
     glitchIt(jumpValue);
+}
+
+void keyReleased() {
+    if (key == ENTER || key == RETURN) {
+        String filename = "img/quicksort-" + counter + ".jpg";
+        save(filename);
+        counter++;
+    }
 }
 
 // This is the function where we we make calls to quicksort
