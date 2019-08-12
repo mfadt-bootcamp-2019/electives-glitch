@@ -29,14 +29,20 @@ void setup() {
 
 // Our draw function
 void draw() {
+	// We load the pixels currently on the screen,
+	// because we want to change these
 	loadPixels();
+	// Loop through every pixel on our canvas
 	for (int x = 0; x < width; x++) {
 		for (int y = 0; y < height; y++) {
+			// Get the "flattened number", the location in our pixel arrays
+			// where the (x, y) position we're currently at is located
 			int flattenedNumber = x + (y * width);
 			if (green(array1[flattenedNumber]) >= green(array2[flattenedNumber])) {
 				pixels[flattenedNumber] = array1[flattenedNumber];
 			} else {
 				pixels[flattenedNumber] = array2[flattenedNumber];
+				pixels[flattenedNumber] *= 1.05;
 			}
 		}
 	}
