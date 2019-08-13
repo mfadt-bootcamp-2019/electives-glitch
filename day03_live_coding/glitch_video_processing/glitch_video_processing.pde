@@ -23,7 +23,7 @@ void draw() {
 			// Get the Flattened Number
 			int flattenedNumber = x + (y * width);
 			// Apply some random glitch to the pixels!
-			movie.pixels[flattenedNumber] *= 1.02;
+			movie.pixels[flattenedNumber] *= 1.002;
 		}
 	}
 	// Call update, to remind processing to update the pixels in movie
