@@ -40,7 +40,12 @@ void runPixelLoopOnce() {
 			println("Printing the value of pixels[",flattenedNumber,"]:", pixels[flattenedNumber]);
 			println("Printing the value of get(",x,",",y,"):", get(x, y));
 			// Print out the red, green, and blue values for each pixel
-			println("Printing out the red, green, and blue values of pixel",flattenedNumber,red(flattenedNumber),green(flattenedNumber),blue(flattenedNumber));
+			println("Printing out the red, green, and blue values of pixel",
+				flattenedNumber,
+				red(pixels[flattenedNumber]),
+				green(pixels[flattenedNumber]),
+				blue(pixels[flattenedNumber])
+			);
 		}
 	}
 	// Call to updatePixels (since we changed some to yellow)
