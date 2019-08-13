@@ -2,13 +2,13 @@
 PImage img1;
 PImage img2;
 // Create two empty arrays that are the same size as our images
-int[] array1 = new int[800 * 500];
-int[] array2 = new int[800 * 500];
+int[] array1 = new int[1200 * 750];
+int[] array2 = new int[1200 * 750];
 
 // Our setup function
 void setup() {
 	// Set up the size of the canvas
-	size(800, 500);
+	size(1200, 750);
 	// Declare img1,
 	// 	// Put it on the canvas with the image(img2...) call,
 	// Load the Pixels,
@@ -41,10 +41,10 @@ void draw() {
 			// If the green value at our current pixel is greater in array1 than array2
 			// we set the pixel in the canvas equal to the pixel in array1
 			if (green(array1[flattenedNumber]) >= green(array2[flattenedNumber])) {
-				pixels[flattenedNumber] = array1[flattenedNumber];
+				pixels[flattenedNumber] = array1[flattenedNumber] - 200;
 			} else { // otherwise we set the pixel in the canvas equal to the pixel in array2
 				pixels[flattenedNumber] = array2[flattenedNumber];
-				pixels[flattenedNumber] *= 1.05;
+				pixels[flattenedNumber] *= 1.09;
 			}
 		}
 	}

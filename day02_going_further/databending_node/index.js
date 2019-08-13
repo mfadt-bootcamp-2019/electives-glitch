@@ -4,7 +4,7 @@
 const fs = require('fs');
 
 class DataBend {
-	constructor(path, fileName) {
+	constructor(path, fileName, incrementer) {
 		// Make the output directory if it isn't there yet
 		if (!fs.existsSync('output')){
 			fs.mkdirSync('output');
@@ -12,15 +12,21 @@ class DataBend {
 		fs.readFile(`${path}/${fileName}`, (err, buf) => {
 			if (err) throw err;
 			for (let i = 0; i < 100; i++) {
+				let chunkSize = incrementer + 1;
 				let ranByte1 = Math.floor(Math.random() * buf.length);
 				let ranByte2 = Math.floor(Math.random() * buf.length);
-				buf[ranByte1] = buf[ranByte2];
+				// buf[ranByte1] = buf[ranByte2];
+				for (let j = 0; j < chunkSize; j++) {
+					buf[ranByte1 + j] = buf[ranByte2 + j];
+				}
 			}
-			fs.writeFileSync(`output/${fileName}`, buf, (err) => {
+			fs.writeFileSync(`output/${incrementer}-${fileName}`, buf, (err) => {
 				if (err) throw err;
 			});
 		});
 	}
 }
 
-new DataBend('img', 'bob.jpg');
+for (let i = 0; i < 100; i++) {
+	new DataBend('img', 'bob.jpg', i);
+}
