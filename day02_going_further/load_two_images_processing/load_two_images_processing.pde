@@ -38,9 +38,11 @@ void draw() {
 			// Get the "flattened number", the location in our pixel arrays
 			// where the (x, y) position we're currently at is located
 			int flattenedNumber = x + (y * width);
+			// If the green value at our current pixel is greater in array1 than array2
+			// we set the pixel in the canvas equal to the pixel in array1
 			if (green(array1[flattenedNumber]) >= green(array2[flattenedNumber])) {
 				pixels[flattenedNumber] = array1[flattenedNumber];
-			} else {
+			} else { // otherwise we set the pixel in the canvas equal to the pixel in array2
 				pixels[flattenedNumber] = array2[flattenedNumber];
 				pixels[flattenedNumber] *= 1.05;
 			}
