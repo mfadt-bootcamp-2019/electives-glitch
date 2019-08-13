@@ -2,18 +2,18 @@
 PImage img1;
 PImage img2;
 // Create two empty arrays that are the same size as our images
-int[] array1 = new int[800 * 600];
-int[] array2 = new int[800 * 600];
+int[] array1 = new int[800 * 500];
+int[] array2 = new int[800 * 500];
 
 // Our setup function
 void setup() {
 	// Set up the size of the canvas
-	size(800, 600);
+	size(800, 500);
 	// Declare img1,
 	// 	// Put it on the canvas with the image(img2...) call,
 	// Load the Pixels,
 	// Put the loaded pixels into our empty array that is the same size as the pixel array.
-	img1 = loadImage("img/cat.png");
+	img1 = loadImage("img/cats1.jpg");
 	image(img1, 0, 0, width, height);
 	loadPixels();
 	arrayCopy(pixels, array1);
@@ -21,7 +21,7 @@ void setup() {
 	// Put it on the canvas with the image(img2...) call,
 	// Load the Pixels,
 	// Put the loaded pixels into our empty array that is the same size as the pixel array.
-	img2 = loadImage("img/vapor.png");
+	img2 = loadImage("img/cats2.jpg");
 	image(img2, 0, 0, width, height);
 	loadPixels();
 	arrayCopy(pixels, array2);
