@@ -14,9 +14,11 @@ class DataBend {
 			for (let i = 0; i < 100; i++) {
 				let ranByte1 = Math.floor(Math.random() * buf.length);
 				let ranByte2 = Math.floor(Math.random() * buf.length);
-				let temp = buf[ranByte1];
-				buf[ranByte1] = buf[ranByte2];
-				buf[ranByte2] = temp;
+				for (let j = 0; j < 20; j++) {
+					let temp = buf[ranByte1 + j];
+					buf[ranByte1 + j] = buf[ranByte2 + j];
+					buf[ranByte2 + j] = temp;
+				}
 			}
 			fs.writeFileSync(`output/${fileName}`, buf, (err) => {
 				if (err) throw err;
