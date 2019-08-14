@@ -15,9 +15,10 @@ class DataBend {
 				let chunkSize = incrementer + 1;
 				let ranByte1 = Math.floor(Math.random() * buf.length);
 				let ranByte2 = Math.floor(Math.random() * buf.length);
-				// buf[ranByte1] = buf[ranByte2];
 				for (let j = 0; j < chunkSize; j++) {
+					let temp = buf[ranByte1 + j];
 					buf[ranByte1 + j] = buf[ranByte2 + j];
+					buf[ranByte2 + j] = temp;
 				}
 			}
 			fs.writeFileSync(`output/${incrementer}-${fileName}`, buf, (err) => {
